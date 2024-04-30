@@ -1,5 +1,5 @@
 .App {
-  text-align: center;
+ 
 }
 
 .App-logo {
@@ -35,4 +35,20 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.d-flex-coloumn{
+  flex-direction: column;
+}
+.flex-end{
+  justify-content: flex-end;
+}
+textarea{
+  outline: 1px solid blue;
+}
+.w-100{
+  width: 100%;
+}
+.mt-2{
+  margin-top: 10px;
 }

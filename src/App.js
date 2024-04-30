@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import Dashboard from './Components/Dashboard/DashBoard';
+import { createContext, useEffect, useState } from 'react';
+import { jiratask } from './API/storeData';
+export const  TaskContext = createContext({
+  todo:{},
+  inProgress:{},
+  done:{}
+})
 function App() {
+   let [task,setTask]= useState({ToDo:{},
+  done:{},
+inProgress:{}})
+
+useEffect(()=>{
+  setTask(jiratask.fetchData())
+},[])
+
+   const changeData=()=>{
+    let a ={...jiratask.fetchData()}
+setTask(a)
+   }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <TaskContext.Provider value={{state:task,change:changeData}}>
+<div className="App">
+      <Dashboard/>
     </div>
+    </TaskContext.Provider>
+    
   );
 }
 

@@ -1,0 +1,12 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px 10px 10px;
+    border-bottom: 1px solid rgb(180, 174, 174);
+}
+.header--create__logo{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 130px;
+}
